@@ -55,7 +55,7 @@ public class InsertCodeUtils extends WriteCommandAction.Simple {
         SelectionModel model = editor.getSelectionModel();
 
         int startOffset = model.getSelectionStart();
-        
+
         InsertCodeUtils utils = new InsertCodeUtils(project, file);
         utils.insertMessage(editor, psiClass, startOffset, messsage);
     }
@@ -81,7 +81,7 @@ public class InsertCodeUtils extends WriteCommandAction.Simple {
         if (element == null) {
             return null;
         } else {
-            PsiClass target = (PsiClass) PsiTreeUtil.getParentOfType(element, PsiClass.class);
+            PsiClass target = PsiTreeUtil.getParentOfType(element, PsiClass.class);
             return target instanceof SyntheticElement ? null : target;
         }
     }

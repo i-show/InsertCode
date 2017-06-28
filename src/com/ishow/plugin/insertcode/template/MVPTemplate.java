@@ -44,7 +44,7 @@ public class MVPTemplate {
                     "\n" +
                     "public class ${TARGET_NAME}" + VIEW_SUFFIX + " extends AppBaseActivity implements ${TARGET_NAME}Contract.View {\n" +
                     "\n" +
-                    "private ${TARGET_NAME}Contract.Presenter mPresenter;\n" +
+                    "    private ${TARGET_NAME}Contract.Presenter mPresenter;\n" +
                     "    @Override\n" +
                     "    protected void onCreate(Bundle savedInstanceState) {\n" +
                     "        super.onCreate(savedInstanceState);\n" +

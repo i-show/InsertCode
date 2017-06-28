@@ -30,13 +30,6 @@ public class InsertEndModifyAction extends BaseGenerateAction {
     public void actionPerformed(AnActionEvent event) {
         InsertAnnotationsSetting setting = InsertAnnotationsSetting.getInstance();
         String message = setting.getEndAnnotations();
-        // 获取编辑器中的文件
-        Project project = event.getData(PlatformDataKeys.PROJECT);
-        Editor editor = event.getData(PlatformDataKeys.EDITOR);
-        PsiFile file = PsiUtilBase.getPsiFileInEditor(editor, project);
-        PsiClass targetClass = getTargetClass(editor, file);;
-
-
         InsertCodeUtils.insertCode(event, StringUtils.format(message));
     }
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="InsertCode:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/InsertCode_jar</output-path>
+    <root id="archive" name="InsertCode.jar">
+      <element id="module-output" name="InsertCode" />
+    </root>
+  </artifact>
+</component>

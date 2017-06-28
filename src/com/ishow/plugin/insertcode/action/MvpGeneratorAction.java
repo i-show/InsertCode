@@ -10,6 +10,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
 import com.intellij.psi.codeStyle.JavaCodeStyleManager;
 import com.intellij.psi.search.FilenameIndex;
+import com.intellij.psi.search.GlobalSearchScope;
 import com.ishow.plugin.insertcode.configure.MvpTemplateSetting;
 import com.ishow.plugin.insertcode.template.MVPTemplate;
 import com.ishow.plugin.insertcode.utils.StringUtils;
@@ -24,14 +25,16 @@ import java.io.IOException;
  * MVP代码生成
  */
 public class MvpGeneratorAction extends AnAction {
+    private Project mProject;
+    private PsiDirectory mPsiDirectory;
 
     public void actionPerformed(AnActionEvent event) {
-        //final IdeView view = event.getRequiredData(LangDataKeys.IDE_VIEW);
-        //view.getDirectories();
+        final IdeView view = event.getRequiredData(LangDataKeys.IDE_VIEW);
+        mPsiDirectory = view.getOrChooseDirectory();
 
-        final Project project = event.getData(PlatformDataKeys.PROJECT);
+        mProject = event.getData(PlatformDataKeys.PROJECT);
         String path = getCurrentPath(event);
-        String moudleName = inputModuleName(project);
+        String moudleName = inputModuleName(mProject);
         try {
             create(path, moudleName);
         } catch (IOException e1) {
@@ -108,16 +111,6 @@ public class MvpGeneratorAction extends AnAction {
         writer.write(content);
         writer.flush();
         writer.close();
-
-        //PsiClass clazz = JavaDirectoryService.getInstance().createClass(pathString, fileName);
-//
-//        try {
-//            JavaCodeStyleManager styleManager = JavaCodeStyleManager.getInstance(mProject);
-//            styleManager.optimizeImports(mFile);
-//            styleManager.shortenClassReferences(mTargetClass);
-//        } catch (Exception e) {
-//            System.out.println(e.toString());
-//        }
     }
 
     private String getPackageName(String path) {
