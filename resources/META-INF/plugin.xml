@@ -1,0 +1,60 @@
+<idea-plugin>
+    <id>com.your.company.unique.plugin.id</id>
+    <name>Plugin display name here</name>
+    <version>1.0</version>
+    <vendor email="support@i-show.club" url="http://www.i-show.club">I-SHOW</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="com.ishow.plugin.insertcode.configure.InsertAnnotationsConfigure"/>
+        <applicationService serviceInterface="com.ishow.plugin.insertcode.configure.InsertAnnotationsSetting"
+                            serviceImplementation="com.ishow.plugin.insertcode.configure.InsertAnnotationsSetting"/>
+
+        <applicationConfigurable instance="com.ishow.plugin.insertcode.configure.MvpTemplateConfigure"/>
+        <applicationService serviceInterface="com.ishow.plugin.insertcode.configure.MvpTemplateSetting"
+                            serviceImplementation="com.ishow.plugin.insertcode.configure.MvpTemplateSetting"/>
+    </extensions>
+
+    <actions>
+
+        <action id="com.ishow.plugin.insertcode.InsertStartModify"
+                class="com.ishow.plugin.insertcode.action.InsertStartModifyAction" text="InsertStartModifyAction"
+                description="插入修改时间和人">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt PAGE_UP"/>
+        </action>
+
+        <action id="com.ishow.plugin.insertcode.InsertEndModifyAction"
+                class="com.ishow.plugin.insertcode.action.InsertEndModifyAction" text="InsertEndModifyAction"
+                description="插入结束注释">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt PAGE_DOWN"/>
+        </action>
+
+        <action id="MvpGeneratorAction" class="com.ishow.plugin.insertcode.action.MvpGeneratorAction"
+                text="MvpGeneratorAction" description="MvpGeneratorAction">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt P"/>
+        </action>
+
+    </actions>
+
+</idea-plugin>
