@@ -6,7 +6,6 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
-import com.intellij.openapi.editor.VisualPosition;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
@@ -54,22 +53,11 @@ public class InsertCodeUtils extends WriteCommandAction.Simple {
         PsiFile file = PsiUtilBase.getPsiFileInEditor(editor, project);
         PsiClass psiClass = getTargetClass(editor, file);
         SelectionModel model = editor.getSelectionModel();
-        String message2 = model.getSelectedText();
-        System.out.println("选中的文本： " + model.getSelectedText());
-        VisualPosition position = model.getLeadSelectionPosition();
-        if (position == null) {
-            message2 = message2 + "position is null";
-            System.out.println("选中文本的postion 为null");
-        } else {
-            message2 = message2 + "    : column = " + position.getColumn() + "   line = " + position.getLine();
-            System.out.println("选中的文本column ： " + position.getColumn());
-            System.out.println("选中的文本line： " + position.getLine());
-        }
 
         int startOffset = model.getSelectionStart();
 
         InsertCodeUtils utils = new InsertCodeUtils(project, file);
-        utils.insertMessage(editor, psiClass, startOffset, message2);
+        utils.insertMessage(editor, psiClass, startOffset, messsage);
     }
 
 

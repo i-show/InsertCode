@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.your.company.unique.plugin.id</id>
-    <name>Plugin display name here</name>
+    <id>com.ishow.plugin</id>
+    <name>I-SHOW Plugin Utils</name>
     <version>1.0</version>
     <vendor email="support@i-show.club" url="http://www.i-show.club">I-SHOW</vendor>
 
