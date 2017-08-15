@@ -44,6 +44,9 @@ public class StringUtils {
         return builder.toString();
     }
 
+    public static boolean isEmpty(String str) {
+        return str == null || str.length() == 0;
+    }
 
     public static String format(String content) {
         String username = System.getenv("USERNAME");

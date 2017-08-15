@@ -55,6 +55,10 @@
             <keyboard-shortcut keymap="$default" first-keystroke="alt P"/>
         </action>
 
+        <action id="AnnotationsCodeAction" class="com.ishow.plugin.insertcode.action.AnnotationsCodeAction"
+                text="AnnotationsCodeAction" description="AnnotationsCodeAction">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SLASH"/>
+        </action>
     </actions>
 
 </idea-plugin>
