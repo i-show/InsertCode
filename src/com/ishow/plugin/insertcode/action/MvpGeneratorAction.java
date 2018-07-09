@@ -70,6 +70,7 @@ public class MvpGeneratorAction extends AnAction {
         final String fileName = StringUtils.plusString(targetName, MVPTemplate.CONTRACT_SUFFIX, ".java");
         String content = setting.getContractTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
+        content = StringUtils.format(content);
         createFile(pathString, fileName, content);
     }
 
@@ -77,6 +78,7 @@ public class MvpGeneratorAction extends AnAction {
         final String fileName = StringUtils.plusString(targetName, MVPTemplate.PERSENTER_SUFFIX, ".java");
         String content = setting.getPresenterTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
+        content = StringUtils.format(content);
         createFile(pathString, fileName, content);
     }
 
@@ -84,6 +86,7 @@ public class MvpGeneratorAction extends AnAction {
         final String fileName = StringUtils.plusString(targetName, MVPTemplate.VIEW_SUFFIX, ".java");
         String content = setting.getViewTemplate().replaceAll("\\$\\{PACKAGE_NAME}", packageName);
         content = content.replaceAll("\\$\\{TARGET_NAME}", targetName);
+        content = StringUtils.format(content);
         createFile(pathString, fileName, content);
     }
 

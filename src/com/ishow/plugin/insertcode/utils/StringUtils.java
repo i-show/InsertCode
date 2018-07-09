@@ -51,7 +51,9 @@ public class StringUtils {
     public static String format(String content) {
         String username = System.getenv("USERNAME");
         String date = DateUtils.format(System.currentTimeMillis(), DateUtils.FORMAT_YMD);
-        content = content.replaceAll("\\$\\{USER}", username);
+        if(!isEmpty(username)) {
+            content = content.replaceAll("\\$\\{USER}", username);
+        }
         content = content.replaceAll("\\$\\{DATE}", date);
         return content;
     }

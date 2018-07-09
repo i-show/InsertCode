@@ -11,6 +11,9 @@ public class MVPTemplate {
     public static final String CONTRACT =
             "package ${PACKAGE_NAME};\n" +
                     "\n" +
+                    "/**\n" +
+                    "* Created by ${USER} on ${DATE}.\n" +
+                    "*/\n" +
                     "interface ${TARGET_NAME}" + CONTRACT_SUFFIX + "{\n" +
                     "\n" +
                     "    interface View extends BaseView, IViewStatus {\n" +
@@ -26,6 +29,9 @@ public class MVPTemplate {
     public static final String PERSENTER =
             "package ${PACKAGE_NAME};\n" +
                     "\n" +
+                    "/**\n" +
+                    "* Created by ${USER} on ${DATE}.\n" +
+                    "*/\n" +
                     "class ${TARGET_NAME}" + PERSENTER_SUFFIX + " implements ${TARGET_NAME}Contract.Presenter {\n" +
                     "   \n" +
                     "    private ${TARGET_NAME}Contract.View mView;\n" +
@@ -41,7 +47,9 @@ public class MVPTemplate {
     public static final String VIEW =
             "package ${PACKAGE_NAME};\n" +
                     "\n" +
-                    "\n" +
+                    "/**\n" +
+                    "* Created by ${USER} on ${DATE}.\n" +
+                    "*/\n" +
                     "public class ${TARGET_NAME}" + VIEW_SUFFIX + " extends AppBaseActivity implements ${TARGET_NAME}Contract.View {\n" +
                     "\n" +
                     "    private ${TARGET_NAME}Contract.Presenter mPresenter;\n" +
